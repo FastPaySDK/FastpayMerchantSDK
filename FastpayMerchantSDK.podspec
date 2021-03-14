@@ -18,14 +18,14 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
 
   s.description      = <<-DESC
-  FastpayMerchantSDK blah blah blah
+  FastpayMerchantSDK blah blah blah blah blah blahblah blah blahblah blah blahblah blah blahblah blah blahblah blah blahblah blah blahblah blah blahblah blah blah
                        DESC
 
-  s.homepage         = "https://github.com/anamulht-fsi/FrameworkDistributionTest"
+  s.homepage         = "https://github.com/FastPaySDK/FastPayiOSSDK"
   #s.screenshots      = [ "https://raw.githubusercontent.com/jonkykong/SideMenu/master/etc/SlideOut.gif", "https://raw.githubusercontent.com/jonkykong/SideMenu/master/etc/SlideIn.gif", "https://raw.githubusercontent.com/jonkykong/SideMenu/master/etc/Dissolve.gif", "https://raw.githubusercontent.com/jonkykong/SideMenu/master/etc/InOut.gif" ]
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { "anamul" => "anamul@newroztech.com" }
-  s.source           = { :git => "https://github.com/anamulht-fsi/FrameworkDistributionTest.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/FastPaySDK/FastPayiOSSDK.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '11.0'
