@@ -1,42 +1,18 @@
-#
-# Be sure to run `pod lib lint FastpayMerchantSDK.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
-  s.name             = "FastpayMerchantSDK"
-  s.version          = "1.0.0"
-  s.summary          = "FastpayMerchantSDK enables you to integrate Fastpay payment into your application"
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!  
+  s.name             = 'FastpayMerchantSDK'
+  s.version          = '1.0.0'
+  s.summary          = '##### ###### ######## ####### ########'
 
   s.description      = <<-DESC
-  FastpayMerchantSDK blah blah blah blah blah blahblah blah blahblah blah blahblah blah blahblah blah blahblah blah blahblah blah blahblah blah blahblah blah blah
+##### ###### ######## ####### ######## ##### ###### ######## ####### ######## ##### ###### ######## ####### ######## ##### ###### ######## ####### ######## ##### ###### ######## ####### ########
                        DESC
 
-  s.homepage         = "https://github.com/FastPaySDK/FastPayiOSSDK"
-  #s.screenshots      = [ "https://raw.githubusercontent.com/jonkykong/SideMenu/master/etc/SlideOut.gif", "https://raw.githubusercontent.com/jonkykong/SideMenu/master/etc/SlideIn.gif", "https://raw.githubusercontent.com/jonkykong/SideMenu/master/etc/Dissolve.gif", "https://raw.githubusercontent.com/jonkykong/SideMenu/master/etc/InOut.gif" ]
+  s.homepage         = 'https://github.com/FastPaySDK/FastPayiOSSDK'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { "anamul" => "anamul@newroztech.com" }
-  s.source           = { :git => "https://github.com/FastPaySDK/FastPayiOSSDK.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { 'anamul' => 'anamul@newroztech.com' }
+  s.source           = { :git => 'https://github.com/FastPaySDK/FastPayiOSSDK.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '11.0'
-  s.swift_version = '5.0'
+  s.ios.deployment_target = '10.0'
+  s.source_files = 'FastpayMerchantSDK/*'
 
-  s.source_files = 'FastpayMerchantSDK/**/*.swift'
-   #s.resource_bundles = {
-    #  'FastpayMerchantSDK' => ['FastpayMerchantSDK/Assets/*.png']
-    #}
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
