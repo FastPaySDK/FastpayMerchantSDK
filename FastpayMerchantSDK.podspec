@@ -8,7 +8,8 @@ Pod::Spec.new do |s|
                        DESC
 
   s.homepage         = 'https://github.com/FastPaySDK/FastPayiOSSDK'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
+  #s.license          = { :type => 'MIT', :file => 'LICENSE' }
+  s.license = 'MIT'
   s.author           = { 'anamul' => 'anamul@newroztech.com' }
   s.source           = { :git => 'https://github.com/FastPaySDK/FastPayiOSSDK.git', :tag => s.version.to_s }
 

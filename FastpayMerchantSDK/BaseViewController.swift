@@ -347,7 +347,7 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
 //            mobileNumber = (mobileNumber as NSString?)?.substring(from: length - 10)
 //            //print("\(mobileNumber ?? "")")
 //        }
-//        
+//
 //        return mobileNumber ?? ""
     }
     
