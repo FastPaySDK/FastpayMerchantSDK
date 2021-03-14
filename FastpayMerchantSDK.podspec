@@ -24,17 +24,17 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/anamulht-fsi/FrameworkDistributionTest"
   #s.screenshots      = [ "https://raw.githubusercontent.com/jonkykong/SideMenu/master/etc/SlideOut.gif", "https://raw.githubusercontent.com/jonkykong/SideMenu/master/etc/SlideIn.gif", "https://raw.githubusercontent.com/jonkykong/SideMenu/master/etc/Dissolve.gif", "https://raw.githubusercontent.com/jonkykong/SideMenu/master/etc/InOut.gif" ]
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { "jonkykong" => "anamul@newroztech.com" }
+  s.author           = { "anamul" => "anamul@newroztech.com" }
   s.source           = { :git => "https://github.com/anamulht-fsi/FrameworkDistributionTest.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '11.0'
   s.swift_version = '5.0'
 
-  s.source_files = 'Pod/Classes/**/*'
-  # s.resource_bundles = {
-  #    'SideMenu' => ['Pod/Assets/*.png']
-  #  }
+  s.source_files = 'FastpayMerchantSDK/**/*.swift'
+   s.resource_bundles = {
+      'FastpayMerchantSDK' => ['FastpayMerchantSDK/Assets/*.png']
+    }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
