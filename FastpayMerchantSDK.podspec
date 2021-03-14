@@ -14,5 +14,6 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '10.0'
   s.source_files = 'FastpayMerchantSDK/*'
+  s.exclude_files = 'FastpayMerchantSDK/*.plist'
 
 end
