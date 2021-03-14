@@ -1,0 +1,431 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1CE604CE25FDFE3700355C31 /* FastpayMerchantSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CE604CC25FDFE3700355C31 /* FastpayMerchantSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1CE604EB25FDFE6100355C31 /* InitiationResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE604D525FDFE6100355C31 /* InitiationResponseModel.swift */; };
+		1CE604EC25FDFE6100355C31 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE604D625FDFE6100355C31 /* SplashViewController.swift */; };
+		1CE604ED25FDFE6100355C31 /* ToCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE604D725FDFE6100355C31 /* ToCViewController.swift */; };
+		1CE604EE25FDFE6100355C31 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE604D825FDFE6100355C31 /* Constant.swift */; };
+		1CE604EF25FDFE6100355C31 /* CheckBoxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE604D925FDFE6100355C31 /* CheckBoxButton.swift */; };
+		1CE604F025FDFE6100355C31 /* FPTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE604DA25FDFE6100355C31 /* FPTransaction.swift */; };
+		1CE604F125FDFE6100355C31 /* Fastpay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE604DB25FDFE6100355C31 /* Fastpay.swift */; };
+		1CE604F225FDFE6100355C31 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE604DC25FDFE6100355C31 /* HeaderView.swift */; };
+		1CE604F325FDFE6100355C31 /* FPTransactionSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE604DD25FDFE6100355C31 /* FPTransactionSuccessViewController.swift */; };
+		1CE604F425FDFE6100355C31 /* StaticTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE604DE25FDFE6100355C31 /* StaticTexts.swift */; };
+		1CE604F525FDFE6100355C31 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE604DF25FDFE6100355C31 /* Util.swift */; };
+		1CE604F625FDFE6100355C31 /* FPTransactionFailureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE604E025FDFE6100355C31 /* FPTransactionFailureViewController.swift */; };
+		1CE604F725FDFE6100355C31 /* LanguageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE604E125FDFE6100355C31 /* LanguageHandler.swift */; };
+		1CE604F825FDFE6100355C31 /* FPWebServiceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE604E225FDFE6100355C31 /* FPWebServiceHandler.swift */; };
+		1CE604F925FDFE6100355C31 /* FPAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE604E325FDFE6100355C31 /* FPAuthViewController.swift */; };
+		1CE604FA25FDFE6100355C31 /* FPDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE604E425FDFE6100355C31 /* FPDataHandler.swift */; };
+		1CE604FB25FDFE6100355C31 /* FPQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE604E525FDFE6100355C31 /* FPQRViewController.swift */; };
+		1CE604FC25FDFE6100355C31 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE604E625FDFE6100355C31 /* BaseViewController.swift */; };
+		1CE604FD25FDFE6100355C31 /* ValidatePaymentResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE604E725FDFE6100355C31 /* ValidatePaymentResponseModel.swift */; };
+		1CE604FE25FDFE6100355C31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CE604E825FDFE6100355C31 /* Assets.xcassets */; };
+		1CE604FF25FDFE6100355C31 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE604E925FDFE6100355C31 /* Loader.swift */; };
+		1CE6050025FDFE6100355C31 /* PayWithCredentialsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE604EA25FDFE6100355C31 /* PayWithCredentialsResponseModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1CE604C925FDFE3700355C31 /* FastpayMerchantSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FastpayMerchantSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CE604CC25FDFE3700355C31 /* FastpayMerchantSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FastpayMerchantSDK.h; sourceTree = "<group>"; };
+		1CE604CD25FDFE3700355C31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1CE604D525FDFE6100355C31 /* InitiationResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitiationResponseModel.swift; sourceTree = "<group>"; };
+		1CE604D625FDFE6100355C31 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		1CE604D725FDFE6100355C31 /* ToCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToCViewController.swift; sourceTree = "<group>"; };
+		1CE604D825FDFE6100355C31 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		1CE604D925FDFE6100355C31 /* CheckBoxButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxButton.swift; sourceTree = "<group>"; };
+		1CE604DA25FDFE6100355C31 /* FPTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPTransaction.swift; sourceTree = "<group>"; };
+		1CE604DB25FDFE6100355C31 /* Fastpay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fastpay.swift; sourceTree = "<group>"; };
+		1CE604DC25FDFE6100355C31 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		1CE604DD25FDFE6100355C31 /* FPTransactionSuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPTransactionSuccessViewController.swift; sourceTree = "<group>"; };
+		1CE604DE25FDFE6100355C31 /* StaticTexts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticTexts.swift; sourceTree = "<group>"; };
+		1CE604DF25FDFE6100355C31 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		1CE604E025FDFE6100355C31 /* FPTransactionFailureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPTransactionFailureViewController.swift; sourceTree = "<group>"; };
+		1CE604E125FDFE6100355C31 /* LanguageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageHandler.swift; sourceTree = "<group>"; };
+		1CE604E225FDFE6100355C31 /* FPWebServiceHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPWebServiceHandler.swift; sourceTree = "<group>"; };
+		1CE604E325FDFE6100355C31 /* FPAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPAuthViewController.swift; sourceTree = "<group>"; };
+		1CE604E425FDFE6100355C31 /* FPDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPDataHandler.swift; sourceTree = "<group>"; };
+		1CE604E525FDFE6100355C31 /* FPQRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPQRViewController.swift; sourceTree = "<group>"; };
+		1CE604E625FDFE6100355C31 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		1CE604E725FDFE6100355C31 /* ValidatePaymentResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidatePaymentResponseModel.swift; sourceTree = "<group>"; };
+		1CE604E825FDFE6100355C31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1CE604E925FDFE6100355C31 /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		1CE604EA25FDFE6100355C31 /* PayWithCredentialsResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayWithCredentialsResponseModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1CE604C625FDFE3700355C31 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1CE604BF25FDFE3700355C31 = {
+			isa = PBXGroup;
+			children = (
+				1CE604CB25FDFE3700355C31 /* FastpayMerchantSDK */,
+				1CE604CA25FDFE3700355C31 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1CE604CA25FDFE3700355C31 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1CE604C925FDFE3700355C31 /* FastpayMerchantSDK.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1CE604CB25FDFE3700355C31 /* FastpayMerchantSDK */ = {
+			isa = PBXGroup;
+			children = (
+				1CE604E825FDFE6100355C31 /* Assets.xcassets */,
+				1CE604E625FDFE6100355C31 /* BaseViewController.swift */,
+				1CE604D925FDFE6100355C31 /* CheckBoxButton.swift */,
+				1CE604D825FDFE6100355C31 /* Constant.swift */,
+				1CE604DB25FDFE6100355C31 /* Fastpay.swift */,
+				1CE604E325FDFE6100355C31 /* FPAuthViewController.swift */,
+				1CE604E425FDFE6100355C31 /* FPDataHandler.swift */,
+				1CE604E525FDFE6100355C31 /* FPQRViewController.swift */,
+				1CE604DA25FDFE6100355C31 /* FPTransaction.swift */,
+				1CE604E025FDFE6100355C31 /* FPTransactionFailureViewController.swift */,
+				1CE604DD25FDFE6100355C31 /* FPTransactionSuccessViewController.swift */,
+				1CE604E225FDFE6100355C31 /* FPWebServiceHandler.swift */,
+				1CE604DC25FDFE6100355C31 /* HeaderView.swift */,
+				1CE604D525FDFE6100355C31 /* InitiationResponseModel.swift */,
+				1CE604E125FDFE6100355C31 /* LanguageHandler.swift */,
+				1CE604E925FDFE6100355C31 /* Loader.swift */,
+				1CE604EA25FDFE6100355C31 /* PayWithCredentialsResponseModel.swift */,
+				1CE604D625FDFE6100355C31 /* SplashViewController.swift */,
+				1CE604DE25FDFE6100355C31 /* StaticTexts.swift */,
+				1CE604D725FDFE6100355C31 /* ToCViewController.swift */,
+				1CE604DF25FDFE6100355C31 /* Util.swift */,
+				1CE604E725FDFE6100355C31 /* ValidatePaymentResponseModel.swift */,
+				1CE604CC25FDFE3700355C31 /* FastpayMerchantSDK.h */,
+				1CE604CD25FDFE3700355C31 /* Info.plist */,
+			);
+			path = FastpayMerchantSDK;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		1CE604C425FDFE3700355C31 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CE604CE25FDFE3700355C31 /* FastpayMerchantSDK.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		1CE604C825FDFE3700355C31 /* FastpayMerchantSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CE604D125FDFE3700355C31 /* Build configuration list for PBXNativeTarget "FastpayMerchantSDK" */;
+			buildPhases = (
+				1CE604C425FDFE3700355C31 /* Headers */,
+				1CE604C525FDFE3700355C31 /* Sources */,
+				1CE604C625FDFE3700355C31 /* Frameworks */,
+				1CE604C725FDFE3700355C31 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FastpayMerchantSDK;
+			productName = FastpayMerchantSDK;
+			productReference = 1CE604C925FDFE3700355C31 /* FastpayMerchantSDK.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1CE604C025FDFE3700355C31 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1210;
+				TargetAttributes = {
+					1CE604C825FDFE3700355C31 = {
+						CreatedOnToolsVersion = 12.1;
+						LastSwiftMigration = 1210;
+					};
+				};
+			};
+			buildConfigurationList = 1CE604C325FDFE3700355C31 /* Build configuration list for PBXProject "FastpayMerchantSDK" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1CE604BF25FDFE3700355C31;
+			productRefGroup = 1CE604CA25FDFE3700355C31 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1CE604C825FDFE3700355C31 /* FastpayMerchantSDK */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1CE604C725FDFE3700355C31 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CE604FE25FDFE6100355C31 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1CE604C525FDFE3700355C31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CE604F525FDFE6100355C31 /* Util.swift in Sources */,
+				1CE604EB25FDFE6100355C31 /* InitiationResponseModel.swift in Sources */,
+				1CE604EC25FDFE6100355C31 /* SplashViewController.swift in Sources */,
+				1CE604F425FDFE6100355C31 /* StaticTexts.swift in Sources */,
+				1CE604F125FDFE6100355C31 /* Fastpay.swift in Sources */,
+				1CE604FC25FDFE6100355C31 /* BaseViewController.swift in Sources */,
+				1CE604F825FDFE6100355C31 /* FPWebServiceHandler.swift in Sources */,
+				1CE604F925FDFE6100355C31 /* FPAuthViewController.swift in Sources */,
+				1CE604F025FDFE6100355C31 /* FPTransaction.swift in Sources */,
+				1CE604F625FDFE6100355C31 /* FPTransactionFailureViewController.swift in Sources */,
+				1CE604EF25FDFE6100355C31 /* CheckBoxButton.swift in Sources */,
+				1CE604FD25FDFE6100355C31 /* ValidatePaymentResponseModel.swift in Sources */,
+				1CE604FB25FDFE6100355C31 /* FPQRViewController.swift in Sources */,
+				1CE604ED25FDFE6100355C31 /* ToCViewController.swift in Sources */,
+				1CE604FF25FDFE6100355C31 /* Loader.swift in Sources */,
+				1CE604F725FDFE6100355C31 /* LanguageHandler.swift in Sources */,
+				1CE604FA25FDFE6100355C31 /* FPDataHandler.swift in Sources */,
+				1CE604EE25FDFE6100355C31 /* Constant.swift in Sources */,
+				1CE6050025FDFE6100355C31 /* PayWithCredentialsResponseModel.swift in Sources */,
+				1CE604F325FDFE6100355C31 /* FPTransactionSuccessViewController.swift in Sources */,
+				1CE604F225FDFE6100355C31 /* HeaderView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1CE604CF25FDFE3700355C31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1CE604D025FDFE3700355C31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1CE604D225FDFE3700355C31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = P7Q2942Q55;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = FastpayMerchantSDK/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Fastpay.MerchantSDK;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1CE604D325FDFE3700355C31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = P7Q2942Q55;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = FastpayMerchantSDK/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Fastpay.MerchantSDK;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1CE604C325FDFE3700355C31 /* Build configuration list for PBXProject "FastpayMerchantSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CE604CF25FDFE3700355C31 /* Debug */,
+				1CE604D025FDFE3700355C31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1CE604D125FDFE3700355C31 /* Build configuration list for PBXNativeTarget "FastpayMerchantSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CE604D225FDFE3700355C31 /* Debug */,
+				1CE604D325FDFE3700355C31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1CE604C025FDFE3700355C31 /* Project object */;
+}
