@@ -342,13 +342,13 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         
         return mobileNumber ?? ""
                 
-        let length = mobileNumber?.count ?? 0
-        if length > 10 {
-            mobileNumber = (mobileNumber as NSString?)?.substring(from: length - 10)
-            //print("\(mobileNumber ?? "")")
-        }
-        
-        return mobileNumber ?? ""
+//        let length = mobileNumber?.count ?? 0
+//        if length > 10 {
+//            mobileNumber = (mobileNumber as NSString?)?.substring(from: length - 10)
+//            //print("\(mobileNumber ?? "")")
+//        }
+//        
+//        return mobileNumber ?? ""
     }
     
     func getMobileNoLengthEscapingSpecialChar(_ mobileNumber: String?) -> Int {
