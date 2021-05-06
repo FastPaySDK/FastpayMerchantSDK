@@ -27,9 +27,9 @@ internal protocol EPGWDelegate {
     
     var navigationController: UINavigationController!
     
-    @objc public init(storeId: String, storePassword: String, orderId: String, amount: Int, currency: FPCurrency, language: FPLanguage){
+    @objc public init(storeId: String, storePassword: String, orderId: String, amount: Int, currency: FPCurrency/*, languageFPLanguage*/){
         
-        FPLanguageHandler.shared.currentLanguage = language
+        FPLanguageHandler.shared.currentLanguage = .English//language
         
         self.storeId = storeId
         self.storePassword = storePassword
