@@ -366,7 +366,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Fastpay.MerchantSDK.iOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Fastpay.MerchantSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
@@ -395,7 +395,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Fastpay.MerchantSDK.iOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Fastpay.MerchantSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
