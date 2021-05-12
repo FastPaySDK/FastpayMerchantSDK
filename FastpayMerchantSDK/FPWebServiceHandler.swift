@@ -19,7 +19,7 @@ class FPWebServiceHandler{
         case .Sandbox:
             return "https://dev-apigw-sdk.fast-pay.cash/api/v1/"
         case .Production:
-            return ""
+            return "https://apigw-sdk.fast-pay.cash/api/v1/"
         case .none:
             return ""
         }
