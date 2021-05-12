@@ -11,49 +11,6 @@ import UIKit
 struct K {
     private init(){}
     
-    static let IS_DEV_BUILD = false
-    static let IS_SERVER_COMMUNICATION_ENCRYPTED = false
-    
-    struct NotificationKey {
-        private init(){}
-        
-        static let FPMenuOpen = "fpMenuToggleNotificationKey"
-        static let transactionCompletedNotification = "FPTransactionCompleted"
-    }
-    
-    enum BaseURL{
-        
-        case FastPay
-        
-        var Sandbox: String {
-            switch self {
-            case .FastPay:
-                //return "https://revamp-merchant.fast-pay.cash/api/v1/"
-                //return "https://dev-apigw-merchant.fast-pay.cash/api/v1/"
-                return "https://staging-apigw-merchant.fast-pay.cash/api/v1/"
-            }
-        }
-        var Production: String {
-            switch self {
-            case .FastPay:
-                return "https://apigw-merchant.fast-pay.cash/api/v1/"
-            }
-        }
-    }
-    
-    
-    struct UserDefaultsKey {
-        private init(){}
-        
-        static let APITokenKey = "api_tokn_key"
-        static let UserMobileNo = "user_mobile_number_key"
-        static let UserPassword = "alskdf34343faw124324"
-        static let ActiveLanguageIndex = "ActiveLanguageIndexKey_key"
-        static let FCMToken = "FCMTokenKey"
-        static let IntroductionScreenShowFlag = "isPreviousGoForSplash"
-        static let BiometricAuthTypeId = "biometricAuthTypeKeyId"
-    }
-    
     struct UI {
         private init(){}
         
