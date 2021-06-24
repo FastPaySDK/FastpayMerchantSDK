@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FPTransactionSuccessViewController: BaseViewController {
+class FPTransactionSuccessViewController: BaseViewController, CAAnimationDelegate {
     
     private lazy var headerView: UIView = {
         let uiview = HeaderView()
@@ -30,16 +30,47 @@ class FPTransactionSuccessViewController: BaseViewController {
         return label
     }()
     
+    private lazy var trxSuccessIconBGView: UIView = {
+        let uiview = UIView()
+        uiview.translatesAutoresizingMaskIntoConstraints = false
+        uiview.backgroundColor = .clear
+        uiview.layer.cornerRadius = 46
+        uiview.clipsToBounds = true
+        
+        uiview.addSubview(trxSuccessIconImageView)
+        NSLayoutConstraint.activate([
+            trxSuccessIconImageView.centerXAnchor.constraint(equalTo: uiview.centerXAnchor),
+            trxSuccessIconImageView.centerYAnchor.constraint(equalTo: uiview.centerYAnchor)
+        ])
+        
+        uiview.addSubview(trxSuccessIconOverlayView)
+        NSLayoutConstraint.activate([
+            trxSuccessIconOverlayView.leadingAnchor.constraint(equalTo: trxSuccessIconImageView.leadingAnchor),
+            trxSuccessIconOverlayView.topAnchor.constraint(equalTo: trxSuccessIconImageView.topAnchor),
+            trxSuccessIconOverlayView.trailingAnchor.constraint(equalTo: trxSuccessIconImageView.trailingAnchor),
+            trxSuccessIconOverlayView.bottomAnchor.constraint(equalTo: trxSuccessIconImageView.bottomAnchor)
+        ])
+        
+        return uiview
+    }()
+    
     private lazy var trxSuccessIconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .center
-        imageView.backgroundColor = .hexStringToUIColor(hex: "#1DBF73")
-        imageView.layer.cornerRadius = 46
-        imageView.clipsToBounds = true
         imageView.setImageFromBundle(FPTransactionSuccessViewController.self, imageName: "largeWhiteTick")
+        imageView.isHidden = true
         
         return imageView
+    }()
+    
+    private lazy var trxSuccessIconOverlayView: UIView = {
+        let uiview = UIView()
+        uiview.translatesAutoresizingMaskIntoConstraints = false
+        uiview.backgroundColor = .hexStringToUIColor(hex: "#1DBF73")
+        uiview.isHidden = true
+        
+        return uiview
     }()
     
     private lazy var messageLabel: UILabel = {
@@ -110,6 +141,8 @@ class FPTransactionSuccessViewController: BaseViewController {
         return scrollView
     }()
     
+    private var shouldAnimateCheck = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -124,9 +157,29 @@ class FPTransactionSuccessViewController: BaseViewController {
         ])
     }
     
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        if shouldAnimateCheck == true{
+            
+            let storkeLayer = CAShapeLayer()
+            storkeLayer.fillColor = nil
+            storkeLayer.strokeColor = UIColor.hexStringToUIColor(hex: "#1DBF73").cgColor
+            storkeLayer.lineWidth = 10
+            
+            storkeLayer.path = UIBezierPath(roundedRect: self.trxSuccessIconBGView.bounds, cornerRadius: self.trxSuccessIconBGView.layer.cornerRadius).cgPath
+            
+            trxSuccessIconBGView.layer.addSublayer(storkeLayer)
+            
+            let animation = CABasicAnimation(keyPath: "strokeEnd")
+            animation.fromValue = CGFloat(0.0)
+            animation.toValue = CGFloat(1.0)
+            animation.duration = 0.8
+            animation.fillMode = CAMediaTimingFillMode.forwards
+            animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+            animation.delegate = self
+            storkeLayer.add(animation, forKey: "circleAnimation")
+        }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             
@@ -136,4 +189,33 @@ class FPTransactionSuccessViewController: BaseViewController {
         }
     }
     
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        
+        if flag{
+            
+            UIView.animate(withDuration: 0.6) {
+                
+                self.trxSuccessIconBGView.backgroundColor = .hexStringToUIColor(hex: "#1DBF73")
+                
+            } completion: { (ended) in
+                if ended{
+                    
+                    self.trxSuccessIconOverlayView.isHidden = false
+                    self.trxSuccessIconImageView.isHidden = false
+                    
+                    UIView.animate(withDuration: 0.4) {
+                        
+                        self.trxSuccessIconOverlayView.frame.origin.x = self.trxSuccessIconImageView.frame.maxX
+                        
+                    } completion: { (ended) in
+                        if ended{
+                            self.trxSuccessIconOverlayView.removeFromSuperview()
+                            self.shouldAnimateCheck = false
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
 }

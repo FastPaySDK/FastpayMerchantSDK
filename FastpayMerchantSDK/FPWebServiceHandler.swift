@@ -17,9 +17,9 @@ class FPWebServiceHandler{
     lazy var baseUrl: String = {
         switch currentEnvironment{
         case .Sandbox:
-            return "https://staging-apigw-sdk.fast-pay.cash/api/v1/"
+            return "https://staging-apigw-merchant.fast-pay.cash/api/v1/"
         case .Production:
-            return "https://apigw-sdk.fast-pay.cash/api/v1/"
+            return "https://apigw-merchant.fast-pay.cash/api/v1/"
         default:
             return ""
         }
