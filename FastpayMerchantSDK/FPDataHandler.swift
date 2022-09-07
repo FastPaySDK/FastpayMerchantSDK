@@ -17,6 +17,8 @@ class FPDataHandler{
     
     var orderId: String!
     var amount: Int!
+    var storeId: String!
+    var storePass: String!
     var selectedCurrency: FPCurrency!
     
     var initiationData: InitiationData?

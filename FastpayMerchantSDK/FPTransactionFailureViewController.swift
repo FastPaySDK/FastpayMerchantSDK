@@ -9,6 +9,8 @@ import UIKit
 
 class FPTransactionFailureViewController: BaseViewController {
     
+    var msg : String?
+    
     private lazy var failureIconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -26,8 +28,11 @@ class FPTransactionFailureViewController: BaseViewController {
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.font = K.UI.appFont(ofSize: 18, style: .medium)
-        label.text = something_went_wrong_text[currentLanguage?.identifier ?? ""]
-        
+        if let message = msg{
+            label.text = message
+        }else{
+            label.text = something_went_wrong_text[currentLanguage?.identifier ?? ""]
+        }
         return label
     }()
     
@@ -112,14 +117,5 @@ class FPTransactionFailureViewController: BaseViewController {
     @objc private func retryTapped(_ sender: UIButton){
         self.dismiss(animated: true, completion: nil)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

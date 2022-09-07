@@ -294,6 +294,7 @@ class Util{
 @objc public enum FPEnvironment: Int{
     case Sandbox
     case Production
+    case Development
 }
 
 @objc public enum FPLanguage: Int{

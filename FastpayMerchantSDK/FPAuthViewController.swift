@@ -390,6 +390,8 @@ class FPAuthViewController: BaseViewController {
         return scrollView
     }()
     
+    var initialized:Bool?
+    
     override var scrollViewToOverride: UIScrollView?{
         return mainScrollView
     }
@@ -407,6 +409,53 @@ class FPAuthViewController: BaseViewController {
             mainScrollView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
         ])
         
+        self.initialization()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let isInitialized = initialized{
+            if !isInitialized{
+                self.dismiss(animated: true)
+            }
+        }
+    }
+    
+    private func initialization() {
+        FPWebServiceHandler.shared.initiate(storeId: dataHandler.storeId, storePassword: dataHandler.storePass, amount: FPDataHandler.shared.amount, orderId: FPDataHandler.shared.orderId, currency: FPDataHandler.shared.selectedCurrency, shouldShowLoader: true) { (response) in
+
+            if response.code == 200{
+                FPDataHandler.shared.initiationData = response.initiationData
+                self.initialized = true
+            }else{
+                self.initialized = false
+                DispatchQueue.main.async {
+                    let vc = FPTransactionFailureViewController()
+                    vc.modalTransitionStyle = .crossDissolve
+                    vc.modalPresentationStyle = .fullScreen
+                    vc.msg = response.errors?.first ?? "initaialization failed!"
+                    self.present(vc, animated: true, completion: nil)
+                }
+            }
+
+        } onFailure: { ( _) in
+            self.initialized = false
+            DispatchQueue.main.async {
+                let vc = FPTransactionFailureViewController()
+                vc.modalTransitionStyle = .crossDissolve
+                vc.modalPresentationStyle = .fullScreen
+                vc.msg = "initaialization failed!-"
+                self.present(vc, animated: true, completion: nil)
+            }
+        } onConnectionFailure: {
+            self.initialized = false
+            DispatchQueue.main.async {
+                let vc = FPTransactionFailureViewController()
+                vc.modalTransitionStyle = .crossDissolve
+                vc.modalPresentationStyle = .fullScreen
+                vc.msg = "initaialization failed!--"
+                self.present(vc, animated: true, completion: nil)
+            }
+        }
     }
     
     @objc private func tocTapped(_ sender: UIButton){
@@ -418,6 +467,7 @@ class FPAuthViewController: BaseViewController {
         
         webserviceHandler.pay(mobileNumber: K.Misc.CountryCode + formatMobileNumberEscapingSpecialChar(mobileNumberTextField.text), password: passwordTextField.text(), orderId: dataHandler.orderId, token: dataHandler.initiationData?.token ?? "", shouldShowLoader: true) { (response) in
             
+            let failureMsg = response.errors?.joined(separator: "\n") ?? K.Messages.DefaultErrorMessage
             if response.code == 200{
                 
                 let vc = FPTransactionSuccessViewController()
@@ -431,6 +481,7 @@ class FPAuthViewController: BaseViewController {
                 let vc = FPTransactionFailureViewController()
                 vc.modalTransitionStyle = .crossDissolve
                 vc.modalPresentationStyle = .fullScreen
+                vc.msg = failureMsg
                 
                 self.present(vc, animated: true, completion: nil)
             }
@@ -528,16 +579,6 @@ class FPAuthViewController: BaseViewController {
         
         return true
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
 

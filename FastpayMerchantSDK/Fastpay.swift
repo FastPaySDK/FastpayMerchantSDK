@@ -35,6 +35,8 @@ internal protocol EPGWDelegate {
         self.storePassword = storePassword
         FPDataHandler.shared.orderId = orderId
         FPDataHandler.shared.amount = amount
+        FPDataHandler.shared.storeId = storeId
+        FPDataHandler.shared.storePass = storePassword
         FPDataHandler.shared.selectedCurrency = currency
     }
     
@@ -49,41 +51,17 @@ internal protocol EPGWDelegate {
         navigationController.modalTransitionStyle = .coverVertical
         navigationController.modalPresentationStyle = .fullScreen
         
-        viewController.present(navigationController, animated: true, completion: {
+        viewController.present(self.navigationController, animated: true, completion: {
             
-            FPWebServiceHandler.shared.initiate(storeId: self.storeId, storePassword: self.storePassword, amount: FPDataHandler.shared.amount, orderId: FPDataHandler.shared.orderId, currency: FPDataHandler.shared.selectedCurrency, shouldShowLoader: false) { (response) in
-                
-                
-                if response.code == 200{
+            DispatchQueue.main.async {
+                UIView.transition(with: vc.view, duration: 0.5, options: .transitionCrossDissolve) {
                     
-                    FPDataHandler.shared.initiationData = response.initiationData
+                    self.navigationController.viewControllers = [FPAuthViewController()]
                     
-                    DispatchQueue.main.async {
-                        UIView.transition(with: vc.view, duration: 0.5, options: .transitionCrossDissolve) {
-                            
-                            self.navigationController.viewControllers = [FPAuthViewController()]
-                            
-                        } completion: { ( _) in
-                            FPDataHandler.shared.epgwDelegate = self
-                        }
-                    }
-                    
-                }else{
-                    vc.showDialog(title: nil, message: (response.errors?.joined(separator: "\n") ?? K.Messages.DefaultErrorMessage)) {
-                        self.navigationController.dismiss(animated: true) {}
-                    }
-                }
-                
-            } onFailure: { ( _) in
-                vc.showDialog(title: nil, message: K.Messages.DefaultErrorMessage) {
-                    self.navigationController.dismiss(animated: true) {}
-                }
-            } onConnectionFailure: {
-                vc.showDialog(title: nil, message: no_internet_message_text[FPLanguageHandler.shared.currentLanguage.identifier] ?? K.Messages.DefaultErrorMessage) {
-                    self.navigationController.dismiss(animated: true) {}
+                } completion: { ( _) in
+                    FPDataHandler.shared.epgwDelegate = self
                 }
             }
-            
         })
     }
     

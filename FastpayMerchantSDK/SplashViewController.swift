@@ -49,7 +49,7 @@ class SplashViewController: BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+
         Timer.scheduledTimer(withTimeInterval: 0.8, repeats: true) { (timer) in
             if self.initializingTextLabel.text == initiliazing_text[self.currentLanguage?.identifier ?? ""] ?? "" {
                 self.initializingTextLabel.text = "\(initiliazing_text[self.currentLanguage?.identifier ?? ""] ?? "" )."
