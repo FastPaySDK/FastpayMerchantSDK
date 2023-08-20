@@ -17,11 +17,11 @@ class FPWebServiceHandler{
     lazy var baseUrl: String = {
         switch currentEnvironment{
         case .Development:
-            return "https://dev-apigw-sdk.fast-pay.iq/api/v1/"
+            return "https://dev-apigw-sdk.fast-pay.iq/"
         case .Sandbox:
-            return "https://staging-apigw-sdk.fast-pay.iq/api/v1/"
+            return "https://staging-apigw-sdk.fast-pay.iq/"
         case .Production:
-            return "https://apigw-sdk.fast-pay.iq/api/v1/"
+            return "https://apigw-sdk.fast-pay.iq/"
         default:
             return ""
         }
@@ -71,6 +71,7 @@ class FPWebServiceHandler{
             urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
             urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
             urlRequest.addValue(FPLanguageHandler.shared.currentLanguage.identifier, forHTTPHeaderField: "Accept-Language")
+           // print("baseUrl:\(url)\n parameters:\(parameters ?? [:])\n method:\(method)")
             
             session.dataTask(with: urlRequest) { (data, response, error) in
                 
@@ -114,7 +115,7 @@ class FPWebServiceHandler{
     
     func initiate(storeId: String, storePassword: String, amount: Int, orderId: String, currency: FPCurrency, shouldShowLoader: Bool, onSuccess: @escaping (_ response: InitiationResponseModel) -> Void, onFailure: @escaping (Error?) -> Void, onConnectionFailure: (() -> ())? = nil){
         
-        makeRequest(endPoint: "public/sdk/payment/initiation", method: .post, parameters: ["storeId": storeId, "storePassword": storePassword, "billAmount": amount, "orderId": orderId, "currency": currency.code()], onCompletion: { (data) in
+        makeRequest(endPoint: "api/v1/public/sdk/payment/initiation", method: .post, parameters: ["storeId": storeId, "storePassword": storePassword, "billAmount": amount, "orderId": orderId, "currency": currency.code()], onCompletion: { (data) in
             
             do{
                 let response = try JSONDecoder().decode(InitiationResponseModel.self, from: data)
@@ -137,7 +138,7 @@ class FPWebServiceHandler{
     
     func pay(mobileNumber: String, password: String, orderId: String, token: String, shouldShowLoader: Bool, onSuccess: @escaping (_ response: PayWithCredentialsResponseModel) -> Void, onFailure: @escaping (Error?) -> Void, onConnectionFailure: (() -> ())? = nil){
         
-        makeRequest(endPoint: "public/sdk/payment/pay", method: .post, parameters: ["orderId": orderId, "token": token, "mobileNumber": mobileNumber, "password": password], onCompletion: { (data) in
+        makeRequest(endPoint: "api/v1/public/sdk/payment/pay", method: .post, parameters: ["orderId": orderId, "token": token, "mobileNumber": mobileNumber, "password": password], onCompletion: { (data) in
             
             do{
                 let response = try JSONDecoder().decode(PayWithCredentialsResponseModel.self, from: data)
@@ -158,9 +159,57 @@ class FPWebServiceHandler{
         })
     }
     
+    func sentOTP(mobileNumber: String, password: String, orderId: String, token: String, shouldShowLoader: Bool, onSuccess: @escaping (_ response: SentOTPModel) -> Void, onFailure: @escaping (Error?) -> Void, onConnectionFailure: (() -> ())? = nil){
+        
+        makeRequest(endPoint: "api/v2/public/sdk/payment/pay/send-otp", method: .post, parameters: ["order_id": orderId, "token": token, "mobile_number": mobileNumber, "password": password], onCompletion: { (data) in
+            
+            do{
+                let response = try JSONDecoder().decode(SentOTPModel.self, from: data)
+                DispatchQueue.main.async {
+                    onSuccess(response)
+                }
+            }catch {
+                DispatchQueue.main.async {
+                    onFailure(error)
+                }
+            }
+            
+            
+        }, onFailure: { (error) in
+            onFailure(error)
+        }, shouldShowLoader: shouldShowLoader, onConnectionFailure: {
+            onConnectionFailure?()
+        })
+    }
+    
+    func payExecute(mobileNumber: String, password: String, orderId: String, token: String, otp:String, shouldShowLoader: Bool, onSuccess: @escaping (_ response: PayWithCredentialsResponseModel) -> Void, onFailure: @escaping (Error?) -> Void, onConnectionFailure: (() -> ())? = nil){
+
+        makeRequest(endPoint: "api/v2/public/sdk/payment/pay/do-payment",  method: .post, parameters: ["orderId": orderId, "token": token, "mobileNumber": mobileNumber, "password": password, "otp":otp], onCompletion: { (data) in
+            
+            print((String.init(data: data , encoding: .utf8) ?? ""))
+            do{
+                let response = try JSONDecoder().decode(PayWithCredentialsResponseModel.self, from: data)
+                DispatchQueue.main.async {
+                    
+                    onSuccess(response)
+                }
+            }catch {
+                DispatchQueue.main.async {
+                    onFailure(error)
+                }
+            }
+            
+            
+        }, onFailure: { (error) in
+            onFailure(error)
+        }, shouldShowLoader: shouldShowLoader, onConnectionFailure: {
+            onConnectionFailure?()
+        })
+    }
+    
     func validate(orderId: String, storeId: String, storePassword: String, shouldShowLoader: Bool, onSuccess: @escaping(_ response: ValidatePaymentResponseModel) -> Void, onFailure: @escaping (Error?) -> Void, onConnectionFailure: (() -> ())? = nil){
         
-        makeRequest(endPoint: "public/sdk/payment/validate", method: .post, parameters: ["orderId": orderId, "storeId": storeId, "storePassword": storePassword], onCompletion: { (data) in
+        makeRequest(endPoint: "api/v1/public/sdk/payment/validate", method: .post, parameters: ["orderId": orderId, "storeId": storeId, "storePassword": storePassword], onCompletion: { (data) in
             
             do{
                 let response = try JSONDecoder().decode(ValidatePaymentResponseModel.self, from: data)

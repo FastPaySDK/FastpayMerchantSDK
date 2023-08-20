@@ -464,13 +464,15 @@ class FPAuthViewController: BaseViewController {
     }
     
     @objc private func proceedTapped(_ sender: UIButton){
-        
-        webserviceHandler.pay(mobileNumber: K.Misc.CountryCode + formatMobileNumberEscapingSpecialChar(mobileNumberTextField.text), password: passwordTextField.text(), orderId: dataHandler.orderId, token: dataHandler.initiationData?.token ?? "", shouldShowLoader: true) { (response) in
-            
-            let failureMsg = response.errors?.joined(separator: "\n") ?? K.Messages.DefaultErrorMessage
+        let mobileNumer = formatMobileNumberEscapingSpecialChar(mobileNumberTextField.text)
+        let password = passwordTextField.text()
+      //  print("Mobile  : \(mobileNumer) token: \(self.dataHandler.initiationData?.token ?? "")")
+        webserviceHandler.sentOTP(mobileNumber: K.Misc.CountryCode + mobileNumer, password: password, orderId: dataHandler.orderId, token: dataHandler.initiationData?.token ?? "", shouldShowLoader: true) { (response) in
+           
+            let failureMsg = response.message ?? K.Messages.DefaultErrorMessage
             if response.code == 200{
                 
-                let vc = FPTransactionSuccessViewController()
+                let vc = OTPViewController(mobileNumber: mobileNumer, password: password, msg: response.message ?? "")
                 vc.modalTransitionStyle = .crossDissolve
                 vc.modalPresentationStyle = .fullScreen
                 

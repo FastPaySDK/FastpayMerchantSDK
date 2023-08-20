@@ -54,6 +54,8 @@ struct K {
         static let AppBackgroundColor = #colorLiteral(red: 0.07219018787, green: 0.07348110527, blue: 0.1315894723, alpha: 1)
         static let DisabledButtonBackgroundColor = #colorLiteral(red: 0.168627451, green: 0.2, blue: 0.368627451, alpha: 1)
         static let AppGreenColor = #colorLiteral(red: 0.01176470588, green: 0.9215686275, blue: 0.6392156863, alpha: 1)
+        static let AppDarkGreenColor = #colorLiteral(red: 0.0324815698, green: 0.2750106156, blue: 0.2726604939, alpha: 1)
+        static let AppYollowColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
         static let PlacehoderColor = #colorLiteral(red: 0.168627451, green: 0.2, blue: 0.368627451, alpha: 0.3)
     }
     

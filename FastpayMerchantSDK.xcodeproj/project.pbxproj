@@ -30,6 +30,8 @@
 		1CE604FE25FDFE6100355C31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CE604E825FDFE6100355C31 /* Assets.xcassets */; };
 		1CE604FF25FDFE6100355C31 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE604E925FDFE6100355C31 /* Loader.swift */; };
 		1CE6050025FDFE6100355C31 /* PayWithCredentialsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE604EA25FDFE6100355C31 /* PayWithCredentialsResponseModel.swift */; };
+		89EC21BF2A9213470006FC92 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EC21BE2A9213470006FC92 /* OTPViewController.swift */; };
+		89EC21C92A9227000006FC92 /* SentOTPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EC21C82A9227000006FC92 /* SentOTPModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,8 @@
 		1CE604E825FDFE6100355C31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CE604E925FDFE6100355C31 /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		1CE604EA25FDFE6100355C31 /* PayWithCredentialsResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayWithCredentialsResponseModel.swift; sourceTree = "<group>"; };
+		89EC21BE2A9213470006FC92 /* OTPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
+		89EC21C82A9227000006FC92 /* SentOTPModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentOTPModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,32 +94,50 @@
 		1CE604CB25FDFE3700355C31 /* FastpayMerchantSDK */ = {
 			isa = PBXGroup;
 			children = (
+				89EC21BD2A920EE00006FC92 /* Models */,
+				89EC21BC2A920E750006FC92 /* Utils */,
 				1CE604E825FDFE6100355C31 /* Assets.xcassets */,
 				1CE604E625FDFE6100355C31 /* BaseViewController.swift */,
 				1CE604D925FDFE6100355C31 /* CheckBoxButton.swift */,
-				1CE604D825FDFE6100355C31 /* Constant.swift */,
 				1CE604DB25FDFE6100355C31 /* Fastpay.swift */,
 				1CE604E325FDFE6100355C31 /* FPAuthViewController.swift */,
-				1CE604E425FDFE6100355C31 /* FPDataHandler.swift */,
 				1CE604E525FDFE6100355C31 /* FPQRViewController.swift */,
-				1CE604DA25FDFE6100355C31 /* FPTransaction.swift */,
+				89EC21BE2A9213470006FC92 /* OTPViewController.swift */,
 				1CE604E025FDFE6100355C31 /* FPTransactionFailureViewController.swift */,
 				1CE604DD25FDFE6100355C31 /* FPTransactionSuccessViewController.swift */,
 				1CE604E225FDFE6100355C31 /* FPWebServiceHandler.swift */,
 				1CE604DC25FDFE6100355C31 /* HeaderView.swift */,
-				1CE604D525FDFE6100355C31 /* InitiationResponseModel.swift */,
-				1CE604E125FDFE6100355C31 /* LanguageHandler.swift */,
-				1CE604E925FDFE6100355C31 /* Loader.swift */,
-				1CE604EA25FDFE6100355C31 /* PayWithCredentialsResponseModel.swift */,
 				1CE604D625FDFE6100355C31 /* SplashViewController.swift */,
-				1CE604DE25FDFE6100355C31 /* StaticTexts.swift */,
 				1CE604D725FDFE6100355C31 /* ToCViewController.swift */,
-				1CE604DF25FDFE6100355C31 /* Util.swift */,
-				1CE604E725FDFE6100355C31 /* ValidatePaymentResponseModel.swift */,
 				1CE604CC25FDFE3700355C31 /* FastpayMerchantSDK.h */,
 				1CE604CD25FDFE3700355C31 /* Info.plist */,
 			);
 			path = FastpayMerchantSDK;
+			sourceTree = "<group>";
+		};
+		89EC21BC2A920E750006FC92 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1CE604D825FDFE6100355C31 /* Constant.swift */,
+				1CE604DE25FDFE6100355C31 /* StaticTexts.swift */,
+				1CE604DF25FDFE6100355C31 /* Util.swift */,
+				1CE604E925FDFE6100355C31 /* Loader.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		89EC21BD2A920EE00006FC92 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1CE604E725FDFE6100355C31 /* ValidatePaymentResponseModel.swift */,
+				1CE604EA25FDFE6100355C31 /* PayWithCredentialsResponseModel.swift */,
+				1CE604D525FDFE6100355C31 /* InitiationResponseModel.swift */,
+				89EC21C82A9227000006FC92 /* SentOTPModel.swift */,
+				1CE604DA25FDFE6100355C31 /* FPTransaction.swift */,
+				1CE604E125FDFE6100355C31 /* LanguageHandler.swift */,
+				1CE604E425FDFE6100355C31 /* FPDataHandler.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,12 +226,14 @@
 				1CE604F425FDFE6100355C31 /* StaticTexts.swift in Sources */,
 				1CE604F125FDFE6100355C31 /* Fastpay.swift in Sources */,
 				1CE604FC25FDFE6100355C31 /* BaseViewController.swift in Sources */,
+				89EC21BF2A9213470006FC92 /* OTPViewController.swift in Sources */,
 				1CE604F825FDFE6100355C31 /* FPWebServiceHandler.swift in Sources */,
 				1CE604F925FDFE6100355C31 /* FPAuthViewController.swift in Sources */,
 				1CE604F025FDFE6100355C31 /* FPTransaction.swift in Sources */,
 				1CE604F625FDFE6100355C31 /* FPTransactionFailureViewController.swift in Sources */,
 				1CE604EF25FDFE6100355C31 /* CheckBoxButton.swift in Sources */,
 				1CE604FD25FDFE6100355C31 /* ValidatePaymentResponseModel.swift in Sources */,
+				89EC21C92A9227000006FC92 /* SentOTPModel.swift in Sources */,
 				1CE604FB25FDFE6100355C31 /* FPQRViewController.swift in Sources */,
 				1CE604ED25FDFE6100355C31 /* ToCViewController.swift in Sources */,
 				1CE604FF25FDFE6100355C31 /* Loader.swift in Sources */,
