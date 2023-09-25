@@ -400,7 +400,6 @@ class FPAuthViewController: BaseViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        
         view.addSubview(mainScrollView)
         NSLayoutConstraint.activate([
             mainScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -408,7 +407,7 @@ class FPAuthViewController: BaseViewController {
             mainScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             mainScrollView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
         ])
-        
+
         self.initialization()
     }
     
@@ -422,10 +421,28 @@ class FPAuthViewController: BaseViewController {
     
     private func initialization() {
         FPWebServiceHandler.shared.initiate(storeId: dataHandler.storeId, storePassword: dataHandler.storePass, amount: FPDataHandler.shared.amount, orderId: FPDataHandler.shared.orderId, currency: FPDataHandler.shared.selectedCurrency, shouldShowLoader: true) { (response) in
-
+            
             if response.code == 200{
-                FPDataHandler.shared.initiationData = response.initiationData
-                self.initialized = true
+                if let qrCode = response.initiationData?.qrToken{
+                    var urlComponents = URLComponents()
+                    urlComponents.scheme = "appFpp"
+                    urlComponents.host = "fast-pay.cash"
+                    urlComponents.path = "/qrpay"
+                    let queryItem = URLQueryItem(name: "qrdata", value: qrCode)
+                    urlComponents.queryItems = [queryItem]
+                    let appURL = urlComponents.url //URL(string: "appfpp://fast-pay.cash/qrpay")
+
+                    if UIApplication.shared.openURL(appURL!) {
+                        self.dismiss(animated: true)
+                        UIApplication.shared.open(appURL!, options: [:], completionHandler: nil)
+                    } else {
+                        FPDataHandler.shared.initiationData = response.initiationData
+                        self.initialized = true
+                    }
+                }else{
+                    FPDataHandler.shared.initiationData = response.initiationData
+                    self.initialized = true
+                }
             }else{
                 self.initialized = false
                 DispatchQueue.main.async {
@@ -436,7 +453,7 @@ class FPAuthViewController: BaseViewController {
                     self.present(vc, animated: true, completion: nil)
                 }
             }
-
+            
         } onFailure: { ( _) in
             self.initialized = false
             DispatchQueue.main.async {
