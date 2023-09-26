@@ -401,14 +401,30 @@ class FPAuthViewController: BaseViewController {
         
         view.backgroundColor = .white
         view.addSubview(mainScrollView)
+        
         NSLayoutConstraint.activate([
             mainScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mainScrollView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             mainScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             mainScrollView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
         ])
-
+        self.addSpashView()
         self.initialization()
+    }
+    
+    let splashView = SplashViewController().view!
+    private func addSpashView() {
+        view.addSubview(splashView)
+        NSLayoutConstraint.activate([
+            splashView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            splashView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+            splashView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            splashView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
+        ])
+    }
+    
+    private func removeSplashView() {
+        splashView.removeFromSuperview()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -421,7 +437,7 @@ class FPAuthViewController: BaseViewController {
     
     private func initialization() {
         FPWebServiceHandler.shared.initiate(storeId: dataHandler.storeId, storePassword: dataHandler.storePass, amount: FPDataHandler.shared.amount, orderId: FPDataHandler.shared.orderId, currency: FPDataHandler.shared.selectedCurrency, shouldShowLoader: true) { (response) in
-            
+            self.removeSplashView()
             if response.code == 200{
                 if let qrCode = response.initiationData?.qrToken{
                     var urlComponents = URLComponents()
@@ -444,6 +460,7 @@ class FPAuthViewController: BaseViewController {
                     self.initialized = true
                 }
             }else{
+                
                 self.initialized = false
                 DispatchQueue.main.async {
                     let vc = FPTransactionFailureViewController()
@@ -455,6 +472,7 @@ class FPAuthViewController: BaseViewController {
             }
             
         } onFailure: { ( _) in
+            self.removeSplashView()
             self.initialized = false
             DispatchQueue.main.async {
                 let vc = FPTransactionFailureViewController()
@@ -464,6 +482,7 @@ class FPAuthViewController: BaseViewController {
                 self.present(vc, animated: true, completion: nil)
             }
         } onConnectionFailure: {
+            self.removeSplashView()
             self.initialized = false
             DispatchQueue.main.async {
                 let vc = FPTransactionFailureViewController()
