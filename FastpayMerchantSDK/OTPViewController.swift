@@ -87,7 +87,7 @@ class OTPViewController: UIViewController {
     
     func setupTitle() {
         view.addSubview(lblHeader)
-        lblHeader.text = "Verify your account"
+        lblHeader.text = "Confirm Transaction via Email OTP"
         lblHeader.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -159,6 +159,7 @@ class OTPViewController: UIViewController {
         textField.layer.borderWidth = 1.0
         textField.layer.borderColor = borderColor.cgColor
         textField.backgroundColor = backgroundColor
+        textField.textColor = UIColor.black
         textField.layer.cornerRadius = 8
         textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         
