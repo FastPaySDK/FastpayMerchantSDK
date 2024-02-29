@@ -24,6 +24,8 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
     let dataHandler = FPDataHandler.shared
     let webserviceHandler = FPWebServiceHandler.shared
     
+    @objc weak public var delegate: FastPayDelegate?
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()

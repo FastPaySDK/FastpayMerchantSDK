@@ -7,7 +7,7 @@
 import Foundation
 import UIKit
 
-class OTPViewController: UIViewController {
+class OTPViewController: BaseViewController {
     
     var mobileNumber:String
     var password:String
@@ -52,7 +52,8 @@ class OTPViewController: UIViewController {
     }
     
     func setupBackButton() {
-        backButton.setImage(UIImage(named: "backButton"), for: .normal)
+//        backButton.setImage(UIImage(named: "backButton"), for: .normal)
+        backButton.setImageFromBundle(OTPViewController.self, imageName: "backButton", for: .normal)
         backButton.setTitle("Back", for: .normal)
         backButton.setTitleColor(.black, for: .normal)
         backButton.tintColor = .black
@@ -68,7 +69,9 @@ class OTPViewController: UIViewController {
     }
     
     @objc func buttonPressed(_ sender: UIButton) {
-        self.dismiss(animated: true)
+        self.dismiss(animated: true, completion: {
+            self.delegate?.fastPayProcessStatus(with: .CANCEL)
+        })
     }
     
     func setImage() {
@@ -262,8 +265,8 @@ extension OTPViewController{
     }
 }
 
-extension OTPViewController : UITextFieldDelegate{
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+extension OTPViewController {
+     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         if string.count > 1{
             if let pasteString = UIPasteboard.general.string, pasteString.count <= numberOfDigits {

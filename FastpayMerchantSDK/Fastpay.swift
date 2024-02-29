@@ -8,9 +8,10 @@
 import Foundation
 import UIKit
 
-@objc public protocol FastPayDelegate: class {
+@objc public protocol FastPayDelegate: AnyObject {
     func fastpayTransactionSucceeded(with transaction: FPTransaction)
     func fastpayTransactionFailed(with orderId: String)
+    func fastPayProcessStatus(with status: FPFrameworkStatus)
 }
 
 internal protocol EPGWDelegate {
@@ -29,7 +30,7 @@ internal protocol EPGWDelegate {
     
     @objc public init(storeId: String, storePassword: String, orderId: String, amount: Int, currency: FPCurrency/*, languageFPLanguage*/){
         
-        FPLanguageHandler.shared.currentLanguage = .English//language
+        FPLanguageHandler.shared.currentLanguage = .English //language
         
         self.storeId = storeId
         self.storePassword = storePassword
@@ -55,8 +56,10 @@ internal protocol EPGWDelegate {
             
             DispatchQueue.main.async {
                 UIView.transition(with: vc.view, duration: 0.5, options: .transitionCrossDissolve) {
-                    
-                    self.navigationController.viewControllers = [FPAuthViewController()]
+                    let authVC = FPAuthViewController()
+                    self.navigationController.viewControllers = [authVC]
+                    authVC.delegate = self.delegate
+                    self.delegate?.fastPayProcessStatus(with: FPFrameworkStatus.INIT)
                     
                 } completion: { ( _) in
                     FPDataHandler.shared.epgwDelegate = self

@@ -291,6 +291,13 @@ class Util{
     }
 }
 
+@objc public enum FPFrameworkStatus: Int{
+    case INIT
+    case PAYMENT_WITH_FASTPAY_APP
+    case PAYMENT_WITH_FASTPAY_SDK
+    case CANCEL
+}
+
 @objc public enum FPEnvironment: Int{
     case Sandbox
     case Production

@@ -259,7 +259,9 @@ class FPQRViewController: BaseViewController {
     @objc private func useLoginCredTapped(_ sender: UIButton){
         self.trxResultCheckTimer?.invalidate()
         self.trxResultCheckTimer = nil
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: {
+            self.delegate?.fastPayProcessStatus(with: .CANCEL)
+        })
     }
     
     private func generateQRCode(from string: String) -> UIImage? {

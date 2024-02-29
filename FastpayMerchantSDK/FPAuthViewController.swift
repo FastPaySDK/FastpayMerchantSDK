@@ -430,7 +430,9 @@ class FPAuthViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         if let isInitialized = initialized{
             if !isInitialized{
-                self.dismiss(animated: true)
+                self.dismiss(animated: true, completion: {
+                    self.delegate?.fastPayProcessStatus(with: .CANCEL)
+                })
             }
         }
     }
@@ -449,9 +451,12 @@ class FPAuthViewController: BaseViewController {
                     let appURL = urlComponents.url //URL(string: "appfpp://fast-pay.cash/qrpay")
 
                     if UIApplication.shared.openURL(appURL!) {
-                        self.dismiss(animated: true)
-                        UIApplication.shared.open(appURL!, options: [:], completionHandler: nil)
+                        self.delegate?.fastPayProcessStatus(with: .PAYMENT_WITH_FASTPAY_APP)
+                        self.dismiss(animated: true, completion: {
+                            UIApplication.shared.open(appURL!, options: [:], completionHandler: nil)
+                        })
                     } else {
+                        self.delegate?.fastPayProcessStatus(with: .PAYMENT_WITH_FASTPAY_SDK)
                         FPDataHandler.shared.initiationData = response.initiationData
                         self.initialized = true
                     }
@@ -547,7 +552,7 @@ class FPAuthViewController: BaseViewController {
     
     @objc private func backTapped(_ sender: UIButton){
         self.dismiss(animated: true, completion: {
-            
+            self.delegate?.fastPayProcessStatus(with: .CANCEL)
         })
     }
     

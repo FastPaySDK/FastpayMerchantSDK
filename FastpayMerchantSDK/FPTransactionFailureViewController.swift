@@ -115,7 +115,9 @@ class FPTransactionFailureViewController: BaseViewController {
     
     
     @objc private func retryTapped(_ sender: UIButton){
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: {
+            self.delegate?.fastPayProcessStatus(with: .CANCEL)
+        })
     }
 
 }
