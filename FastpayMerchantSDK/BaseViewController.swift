@@ -33,14 +33,22 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         view.tintColor = K.UI.PrimaryTintColor
         
         registerForKeyboardNotifications()
+        registerRequestTimeoutNotification()
+        registerForBackgroundNotifications()
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        
-        setTranslatableStaticTexts()
+        self.setTranslatableStaticTexts()
+        self.checkIsRequestTimeOut()
+    }
+    
+    private func checkIsRequestTimeOut() {
+        if GTimer.sharedTimer.isRequestTimeOut{
+            self.dismiss(animated: true, completion: { self.delegate?.fastPayProcessStatus(with: .CANCEL)})
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -65,6 +73,26 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.onKeyboardAppear(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.onKeyboardDisappear(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    private func registerForBackgroundNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidEnterBackground(_:)), name: UIApplication.didEnterBackgroundNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(applicationWillEnterForeground(_:)), name: UIApplication.willEnterForegroundNotification, object: nil)
+        
+    }
+    
+    var appDidEnterBackgroundDate:Date?
+    @objc func applicationDidEnterBackground(_ notification: NotificationCenter) {
+        appDidEnterBackgroundDate = Date()
+    }
+
+    @objc func applicationWillEnterForeground(_ notification: NotificationCenter) {
+        guard let previousDate = appDidEnterBackgroundDate else { return }
+        let calendar = Calendar.current
+        let difference = calendar.dateComponents([.second], from: previousDate, to: Date())
+        let seconds = difference.second!
+        debugPrint("TotalSecondSpended is - \(seconds)")
+        GTimer.sharedTimer.reduceSecond(seconds)
     }
     
     
@@ -371,6 +399,21 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIApplication.didEnterBackgroundNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: GTimer.timerName, object: nil)
+    }
+    
+    //MARK: - Request Timeout Notification
+    private func registerRequestTimeoutNotification() {
+        NotificationCenter.default
+            .addObserver(self,
+                         selector: #selector(requestTimeOut),
+                         name: GTimer.timerName, object: nil)
+    }
+
+    @objc private func requestTimeOut() {
+        self.dismiss(animated: true, completion: {self.delegate?.fastPayProcessStatus(with: .CANCEL)})
     }
     
 }

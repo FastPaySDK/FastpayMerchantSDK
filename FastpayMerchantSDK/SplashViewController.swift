@@ -45,6 +45,8 @@ class SplashViewController: BaseViewController {
             fpLogoImageView.bottomAnchor.constraint(equalTo: initializingTextLabel.topAnchor, constant: -25),
             fpLogoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
+        
+        self.startTimer()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,5 +63,11 @@ class SplashViewController: BaseViewController {
                 self.initializingTextLabel.text = "\(initiliazing_text[self.currentLanguage?.identifier ?? ""] ?? "" )."
             }
         }
+    }
+    
+    private func startTimer() {
+        //Timer set at 240 seconds/4 minutes
+        GTimer.sharedTimer.startTimer(timeOut: 240)
+        GTimer.sharedTimer.isRequestTimeOut = false
     }
 }

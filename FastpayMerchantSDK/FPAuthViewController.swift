@@ -430,9 +430,7 @@ class FPAuthViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         if let isInitialized = initialized{
             if !isInitialized{
-                self.dismiss(animated: true, completion: {
-                    self.delegate?.fastPayProcessStatus(with: .CANCEL)
-                })
+                self.dismiss(animated: true, completion: { self.delegate?.fastPayProcessStatus(with: .CANCEL) })
             }
         }
     }

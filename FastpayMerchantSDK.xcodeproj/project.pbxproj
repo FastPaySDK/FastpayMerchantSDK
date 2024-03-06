@@ -30,6 +30,7 @@
 		1CE604FE25FDFE6100355C31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CE604E825FDFE6100355C31 /* Assets.xcassets */; };
 		1CE604FF25FDFE6100355C31 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE604E925FDFE6100355C31 /* Loader.swift */; };
 		1CE6050025FDFE6100355C31 /* PayWithCredentialsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE604EA25FDFE6100355C31 /* PayWithCredentialsResponseModel.swift */; };
+		8961D2832B98310C005F34EA /* GTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8961D2822B98310C005F34EA /* GTimer.swift */; };
 		89EC21BF2A9213470006FC92 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EC21BE2A9213470006FC92 /* OTPViewController.swift */; };
 		89EC21C92A9227000006FC92 /* SentOTPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EC21C82A9227000006FC92 /* SentOTPModel.swift */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,7 @@
 		1CE604E825FDFE6100355C31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CE604E925FDFE6100355C31 /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		1CE604EA25FDFE6100355C31 /* PayWithCredentialsResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayWithCredentialsResponseModel.swift; sourceTree = "<group>"; };
+		8961D2822B98310C005F34EA /* GTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTimer.swift; sourceTree = "<group>"; };
 		89EC21BE2A9213470006FC92 /* OTPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 		89EC21C82A9227000006FC92 /* SentOTPModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentOTPModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +142,7 @@
 				1CE604E725FDFE6100355C31 /* ValidatePaymentResponseModel.swift */,
 				1CE604EA25FDFE6100355C31 /* PayWithCredentialsResponseModel.swift */,
 				1CE604D525FDFE6100355C31 /* InitiationResponseModel.swift */,
+				8961D2822B98310C005F34EA /* GTimer.swift */,
 				89EC21C82A9227000006FC92 /* SentOTPModel.swift */,
 				1CE604DA25FDFE6100355C31 /* FPTransaction.swift */,
 				1CE604E125FDFE6100355C31 /* LanguageHandler.swift */,
@@ -243,6 +246,7 @@
 				1CE604FD25FDFE6100355C31 /* ValidatePaymentResponseModel.swift in Sources */,
 				89EC21C92A9227000006FC92 /* SentOTPModel.swift in Sources */,
 				1CE604FB25FDFE6100355C31 /* FPQRViewController.swift in Sources */,
+				8961D2832B98310C005F34EA /* GTimer.swift in Sources */,
 				1CE604ED25FDFE6100355C31 /* ToCViewController.swift in Sources */,
 				1CE604FF25FDFE6100355C31 /* Loader.swift in Sources */,
 				1CE604F725FDFE6100355C31 /* LanguageHandler.swift in Sources */,
