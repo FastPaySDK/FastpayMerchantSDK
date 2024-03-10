@@ -28,17 +28,18 @@ internal protocol EPGWDelegate {
     
     var navigationController: UINavigationController!
     
-    @objc public init(storeId: String, storePassword: String, orderId: String, amount: Int, currency: FPCurrency/*, languageFPLanguage*/){
+    @objc public init(storeId: String, storePassword: String, orderId: String, amount: Int, currency: FPCurrency, uri:String/*, languageFPLanguage*/){
         
         FPLanguageHandler.shared.currentLanguage = .English //language
         
-        self.storeId = storeId
-        self.storePassword = storePassword
-        FPDataHandler.shared.orderId = orderId
-        FPDataHandler.shared.amount = amount
-        FPDataHandler.shared.storeId = storeId
-        FPDataHandler.shared.storePass = storePassword
+        self.storeId                          = storeId
+        self.storePassword                    = storePassword
+        FPDataHandler.shared.orderId          = orderId
+        FPDataHandler.shared.amount           = amount
+        FPDataHandler.shared.storeId          = storeId
+        FPDataHandler.shared.storePass        = storePassword
         FPDataHandler.shared.selectedCurrency = currency
+        FPDataHandler.shared.uri              = uri
     }
     
     @objc public func start(in viewController: UIViewController, for environment: FPEnvironment){

@@ -22,6 +22,7 @@ class FPDataHandler{
     var selectedCurrency: FPCurrency!
     
     var initiationData: InitiationData?
+    var uri :String!
     
     //var onTransactionCompletion: (() -> ())?
     
