@@ -186,7 +186,7 @@ class FPWebServiceHandler{
 
         makeRequest(endPoint: "api/v2/public/sdk/payment/pay/do-payment",  method: .post, parameters: ["orderId": orderId, "token": token, "mobileNumber": mobileNumber, "password": password, "otp":otp], onCompletion: { (data) in
             
-            print((String.init(data: data , encoding: .utf8) ?? ""))
+//            print((String.init(data: data , encoding: .utf8) ?? ""))
             do{
                 let response = try JSONDecoder().decode(PayWithCredentialsResponseModel.self, from: data)
                 DispatchQueue.main.async {

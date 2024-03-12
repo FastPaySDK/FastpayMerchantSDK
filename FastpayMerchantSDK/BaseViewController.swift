@@ -91,7 +91,7 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         let calendar = Calendar.current
         let difference = calendar.dateComponents([.second], from: previousDate, to: Date())
         let seconds = difference.second!
-        debugPrint("TotalSecondSpended is - \(seconds)")
+//        debugPrint("TotalSecondSpended is - \(seconds)")
         GTimer.sharedTimer.reduceSecond(seconds)
     }
     

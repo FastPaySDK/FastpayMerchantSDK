@@ -260,7 +260,9 @@ class FPAuthViewController: BaseViewController {
     private lazy var backButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitleColor(.hexStringToUIColor(hex: "#2892D7"), for: .normal)
+        button.setTitleColor(.hexStringToUIColor(hex: "#43466E"), for: .normal)
+        button.backgroundColor = .hexStringToUIColor(hex: "#D8E5EB")
+        button.layer.cornerRadius = 8
         button.titleLabel?.font = K.UI.appFont(ofSize: 12, style: .medium)
         button.setTitle(back_text[currentLanguage?.identifier ?? ""], for: .normal)
         
@@ -363,10 +365,11 @@ class FPAuthViewController: BaseViewController {
         
         uiview.addSubview(backButton)
         NSLayoutConstraint.activate([
-            backButton.leadingAnchor.constraint(equalTo: uiview.leadingAnchor, constant: 28),
-            backButton.topAnchor.constraint(equalTo: generateQRLabel.bottomAnchor, constant: 94),
-            backButton.trailingAnchor.constraint(lessThanOrEqualTo: uiview.trailingAnchor, constant: -28),
-            backButton.bottomAnchor.constraint(equalTo: uiview.bottomAnchor, constant: -20)
+            backButton.centerXAnchor.constraint(equalTo: uiview.centerXAnchor, constant: 0),
+            backButton.topAnchor.constraint(equalTo: generateQRLabel.bottomAnchor, constant: 30),
+          //  backButton.trailingAnchor.constraint(lessThanOrEqualTo: uiview.trailingAnchor, constant: -28),
+            backButton.bottomAnchor.constraint(equalTo: uiview.bottomAnchor, constant: -20),
+            backButton.widthAnchor.constraint(equalToConstant: 120)
         ])
         
         return uiview
@@ -450,7 +453,7 @@ class FPAuthViewController: BaseViewController {
                     urlComponents.queryItems = [queryItem0, queryItem1, queryItem2]
                     let appURL = urlComponents.url //URL(string: "appfpp://fast-pay.cash/qrpay")
 
-                    print(appURL ?? "")
+//                    print(appURL ?? "")
                     if UIApplication.shared.openURL(appURL!) {
                         self.delegate?.fastPayProcessStatus(with: .PAYMENT_WITH_FASTPAY_APP)
                         self.dismiss(animated: true, completion: {
