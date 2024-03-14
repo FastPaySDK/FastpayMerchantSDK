@@ -184,7 +184,7 @@ class FPWebServiceHandler{
     
     func payExecute(mobileNumber: String, password: String, orderId: String, token: String, otp:String, shouldShowLoader: Bool, onSuccess: @escaping (_ response: PayWithCredentialsResponseModel) -> Void, onFailure: @escaping (Error?) -> Void, onConnectionFailure: (() -> ())? = nil){
 
-        makeRequest(endPoint: "api/v2/public/sdk/payment/pay/do-payment",  method: .post, parameters: ["orderId": orderId, "token": token, "mobileNumber": mobileNumber, "password": password, "otp":otp], onCompletion: { (data) in
+        makeRequest(endPoint: "api/v2/public/sdk/payment/pay/do-payment",  method: .post, parameters: ["order_id": orderId, "token": token, "mobile_number": mobileNumber, "password": password, "otp":otp], onCompletion: { (data) in
             
 //            print((String.init(data: data , encoding: .utf8) ?? ""))
             do{

@@ -233,7 +233,7 @@ class OTPViewController: BaseViewController {
 extension OTPViewController{
     func executePayment(otp:String) {
  
-        FPWebServiceHandler.shared.pay(mobileNumber: K.Misc.CountryCode + mobileNumber, password: password, orderId: FPDataHandler.shared.orderId, token: FPDataHandler.shared.initiationData?.token ?? "", shouldShowLoader: true) { (response) in
+        FPWebServiceHandler.shared.payExecute(mobileNumber: K.Misc.CountryCode + mobileNumber, password: password, orderId: FPDataHandler.shared.orderId, token: FPDataHandler.shared.initiationData?.token ?? "", otp: otp, shouldShowLoader: true) { (response) in
             
             let failureMsg = response.errors?.joined(separator: "\n") ?? K.Messages.DefaultErrorMessage
             if response.code == 200{
@@ -259,7 +259,6 @@ extension OTPViewController{
             let vc = FPTransactionFailureViewController()
             vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .fullScreen
-            
             self.present(vc, animated: true, completion: nil)
         }
     }
