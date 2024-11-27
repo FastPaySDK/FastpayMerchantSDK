@@ -271,6 +271,18 @@ class Util{
     }
 }
 
+@objc extension UIImage{
+    static func createBorderImage(color: UIColor, size: CGSize) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        let rect = CGRect(origin: .zero, size: size)
+        color.setStroke()
+        UIRectFrame(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image ?? UIImage()
+    }
+}
+
 @objc public enum FPCurrency: Int{
     case IQD = 0
     

@@ -60,15 +60,15 @@ class FPQRViewController: BaseViewController {
         return uiview
     }()
     
-    private lazy var qrTipLabel: UILabel = {
+    private lazy var qrTipLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.textColor = .hexStringToUIColor(hex: "#000000")
-        label.font = K.UI.appFont(ofSize: 12, style: .medium)
-        label.text = "Use another mobile or let your friends & family help"
+        label.textColor     = .hexStringToUIColor(hex: "#000000")
+        label.font          = K.UI.appFont(ofSize: 12, style: .medium)
+        label.text          = "Use another mobile or let your friends & family help"
         
         return label
     }()
@@ -300,7 +300,6 @@ class FPQRViewController: BaseViewController {
 //        }
 //        return nil
     }
-    
     
     deinit {
         trxResultCheckTimer?.invalidate()
