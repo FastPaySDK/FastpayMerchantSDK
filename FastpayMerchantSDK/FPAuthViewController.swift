@@ -710,19 +710,28 @@ class FPAuthViewController: BaseViewController {
                     let queryItem1       = URLQueryItem(name: "clientUri", value: "appfpclient"+FPDataHandler.shared.uri)
                     let queryItem2       = URLQueryItem(name: "transactionId", value: FPDataHandler.shared.orderId)
                     urlComponents.queryItems = [queryItem0, queryItem1, queryItem2]
-                    let appURL               = urlComponents.url //URL(string: "appfpp://fast-pay.cash/qrpay")
+                    let appURL    = urlComponents.url //URL(string: "appfpp://fast-pay.cash/qrpay")
 
-//                    print(appURL ?? "")
-                    if UIApplication.shared.openURL(appURL!) {
-                        self.delegate?.fastPayProcessStatus(with: .PAYMENT_WITH_FASTPAY_APP)
-                        self.dismiss(animated: true, completion: {
-                            UIApplication.shared.open(appURL!, options: [:], completionHandler: nil)
-                        })
+                    
+                    if let appURLNew = appURL {
+                        UIApplication.shared.open(appURLNew, options: [:]) { success in
+                            if success {
+                                print("URL can be open")
+                                self.delegate?.fastPayProcessStatus(with: .PAYMENT_WITH_FASTPAY_APP)
+                                self.dismiss(animated: true, completion: {
+                                    UIApplication.shared.open(appURLNew, options: [:], completionHandler: nil)
+                                })
+                            } else {
+                                print("URL cann't be open")
+                                self.delegate?.fastPayProcessStatus(with: .PAYMENT_WITH_FASTPAY_SDK)
+                                FPDataHandler.shared.initiationData = response.initiationData
+                                self.qrImageView.image = self.generateQRCode(from: response.initiationData?.qrToken ?? "")
+                                self.initialized = true
+                           
+                            }
+                        }
                     } else {
-                        self.delegate?.fastPayProcessStatus(with: .PAYMENT_WITH_FASTPAY_SDK)
-                        FPDataHandler.shared.initiationData = response.initiationData
-                        self.qrImageView.image = generateQRCode(from: response.initiationData?.qrToken ?? "")
-                        self.initialized = true
+                        print("Invalid URL format")
                     }
                 }else{
                     FPDataHandler.shared.initiationData = response.initiationData
